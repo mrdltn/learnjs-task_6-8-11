@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вызовите async–функцию из "обычной"</title>
+</head>
+<body>
+    <script>
+        // Есть «обычная» функция. Как можно внутри неё получить результат выполнения async–функции?
+
+        async function wait() {
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            return 10;
+        }
+
+        function f() {
+        // ...что здесь написать?
+        // чтобы вызвать wait() и дождаться результата "10" от async–функции
+        // не забывайте, здесь нельзя использовать "await"
+
+            wait().then(res => alert(res));
+        }
+        f();
+    </script>
+</body>
+</html>

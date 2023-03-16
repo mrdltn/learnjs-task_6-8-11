@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Армия функций</title>
+</head>
+<body>
+    <script>
+        // Следующий код создаёт массив из стрелков (shooters).
+        // Каждая функция предназначена выводить их порядковые номера. Но что-то пошло не так…
+
+        function makeArmy() {
+            let shooters = [];
+
+            for(let i = 0; i < 10; i++) {
+                let shooter = function() { // функция shooter
+                    alert( i ); // должна выводить порядковый номер
+                };
+                shooters.push(shooter);
+            }
+            return shooters;
+        }
+
+        let army = makeArmy();
+
+        army[0](); // 0
+        army[5](); // 5
+        army[7](); // 7
+    </script>
+</body>
+</html>

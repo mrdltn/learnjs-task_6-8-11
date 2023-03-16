@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Повторный bind</title>
+</head>
+<body>
+    <script>
+        // Можем ли мы изменить this дополнительным связыванием?
+        // Что выведет этот код?
+
+        function f() {
+            alert(this.name);
+        }
+
+        f = f.bind( {name: "Вася"} ).bind( {name: "Петя" } );
+
+        f(); // Вася // контекст, привязанный с помощью bind жестко привязан, который нельзя изменить
+    </script>
+</body>
+</html>

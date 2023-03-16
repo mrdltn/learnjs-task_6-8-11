@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вывод односвязного списка</title>
+</head>
+<body>
+    <script>
+        // Допустим, у нас есть односвязный список (как описано в главе Рекурсия и стек):
+
+        let list = {
+        value: 1,
+        next: {
+            value: 2,
+            next: {
+            value: 3,
+            next: {
+                value: 4,
+                next: null
+            }
+            }
+        }
+        };
+        // Напишите функцию printList(list), которая выводит элементы списка по одному, используя цикл
+        function printListCycle(list) {
+            let item = list;
+                while(item) {
+                    alert(item.value);
+                    item = item.next;
+                }
+        }
+        alert(printListCycle(list));
+
+        // Напишите функцию printList(list), которая выводит элементы списка по одному, используя рекурсию
+        function printListRecurs(list) {
+            alert(list.value);
+                if (list.next) {
+                    printListRecurs(list.next); // менее эффективный за счет использования вложенных вызовов
+                }
+        }
+        alert(printListRecurs(list));
+    </script>
+</body>
+</html>

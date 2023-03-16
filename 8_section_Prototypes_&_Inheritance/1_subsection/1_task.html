@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Работа с прототипами</title>
+</head>
+<body>
+    <script>
+        // В приведённом ниже коде создаются и изменяются два объекта.
+        // Какие значения показываются в процессе выполнения кода?
+
+        let animal = {
+            jumps: null
+            };
+        let rabbit = {
+            __proto__: animal,
+            jumps: true
+        };
+
+        alert( rabbit.jumps ); // true // потому что у объекта rabbit  есть свой jumps
+        delete rabbit.jumps;
+        alert( rabbit.jumps ); // null // у rabbit нет своего jumps и теперь он наследуется от animmal
+        delete animal.jumps;
+        alert( rabbit.jumps ); // undefined // jumps нет ни у одного объекта
+    </script>
+</body>
+</html>
